@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: petshop
-        image: gajjalakesava/petsto
+        image: gajjalakesava/petst
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
@@ -24,11 +24,10 @@ kind: Service
 metadata:
   name: petshop
 spec:
-  type: LoadBalancer
   selector:
     app: petshop
   ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: 8080
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
